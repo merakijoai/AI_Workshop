@@ -104,11 +104,32 @@
       <!-- Special Offer Section (Hidden initially) -->
       <section class="special-offer-section" id="specialOfferSection">
         <div class="offer-container">
-          <div class="offer-badge">عرض محدود - 24 ساعة فقط!</div>
+          <div class="offer-badge">العرض الذهبي - لمدة يوم واحد فقط!</div>
           <h2 class="offer-headline">
             سجّل اليوم في برنامج البرمجة بالذكاء الاصطناعي و احصل على خصم إضافي 
-            <span class="discount-highlight">25 دينار</span> من قيمة البرنامج لمدة 24 ساعة فقط!
+            <span class="discount-highlight">50 دينار</span> من قيمة البرنامج لمدة 24 ساعة فقط!
           </h2>
+          
+          <!-- Golden Offer Timer -->
+          <div class="golden-offer-timer-container">
+            <h3 class="golden-offer-timer-title">باقي على انتهاء العرض الذهبي :</h3>
+            <div class="golden-offer-timer">
+              <div class="golden-timer-unit">
+                <div class="golden-timer-value" id="goldenOfferHours">00</div>
+                <div class="golden-timer-label">ساعات</div>
+              </div>
+              <div class="golden-timer-separator">:</div>
+              <div class="golden-timer-unit">
+                <div class="golden-timer-value" id="goldenOfferMinutes">00</div>
+                <div class="golden-timer-label">دقائق</div>
+              </div>
+              <div class="golden-timer-separator">:</div>
+              <div class="golden-timer-unit">
+                <div class="golden-timer-value" id="goldenOfferSeconds">00</div>
+                <div class="golden-timer-label">ثواني</div>
+              </div>
+            </div>
+          </div>
           
           <div class="program-details">
             <h3 class="program-title">"برمج بذكاء لتستقل" هو برنامج:</h3>
@@ -156,9 +177,84 @@
 
               <div class="bonus-offer">
                 <p class="bonus-text">
-                  <strong>ولا تنسى انه اذا سجلت خلال 24 ساعة رح تدفع بس 75 دينار لتحجز مقعدك!</strong>
+                  <strong>ولا تنسى انه اذا سجلت خلال 24 ساعة رح تدفع بس 50 دينار لتحجز مقعدك!</strong>
                 </p>
               </div>
+              
+            </div>
+          </div>
+
+          <a href="https://go.meraki-academy.com/RegistrationFormS1AI" target="_blank" class="offer-cta-button">
+            سجّل الآن واحصل على الخصم
+          </a>
+           <p class="silver-offer-text">
+            <strong>و إذا ما رح تلحق بس حابب تكون معنا في الفوج القادم , زور الموقع بكرا المسا لتعرف عن العرض الفضي</strong>
+          </p>
+        </div>
+       
+      </section>
+
+      <!-- Silver Offer Section (Hidden initially, shows after 24 hours) -->
+      <section class="special-offer-section" id="silverOfferSection">
+        <div class="offer-container">
+          <div class="offer-badge" style="background: linear-gradient(135deg, #c0c0c0 0%, #808080 100%);">العرض الفضي</div>
+          <h2 class="offer-headline">
+            <a href="https://go.meraki-academy.com/RegistrationFormS1AI" target="_blank" style="color: inherit; text-decoration: underline;">
+              لحضور تسجيل الورشة اضغط هنا
+            </a>
+          </h2>
+          
+          <div class="silver-offer-banner">
+            <p class="silver-offer-text-large">
+              <strong>سجل انت أو أي حدا بتعرفه قبل نهاية الأسبوع 4-12-2025</strong><br/>
+              <strong>و احصل على 25 دينار خصم على قيمة البرنامج</strong>
+            </p>
+          </div>
+          
+          <div class="program-details">
+            <h3 class="program-title">"برمج بذكاء لتستقل" هو برنامج:</h3>
+            <div class="program-stats">
+              <div class="stat-item">
+                <span class="stat-number">9</span>
+                <span class="stat-label">أسابيع</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">36</span>
+                <span class="stat-label">ساعة تدريب</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">نظري + تطبيقي</span>
+              </div>
+            </div>
+
+            <div class="program-features">
+              <h4>خلال 9 أسابيع، بتتعلّم كيف:</h4>
+              <ul class="features-list">
+                <li>تكتب أوامر صحيحة للذكاء الاصطناعي ليبني لك الكود بدقة</li>
+                <li>تبني واجهات مواقع كاملة باستخدام أسلوب ال Vibe Coding</li>
+                <li>تجهّز بورتفوليو احترافي وتعرف تعرض شغلك للعملاء وتبلّش شغلك الحر</li>
+              </ul>
+            </div>
+
+            <div class="program-benefits">
+              <h4>شو بقدملك البرنامج؟</h4>
+              <p>٣ مهارات عملية أساسية لسوق العمل + مشاريع فعلية + بورتفوليو شخصي احترافي... + ومعهم شهادة حضور وإتمام</p>
+            </div>
+
+            <div class="pricing-info">
+              <div class="price-comparison">
+                <span class="old-price">400 دينار</span>
+                <span class="new-price">300 دينار</span>
+              </div>
+              <p class="price-note">حاليا في عرض لمدة محدودة و سعر البرنامج بس 300 دينار بدل 400!</p>
+              
+              <div class="payment-plan">
+                <p><strong>تكلفة حجز المقعد 100 دينار فقط</strong> بتدفعها مقدما</p>
+                <p class="refund-note">(وبتستردّها كاملة لو حسّيت التدريب مش مناسب إلك خلال أول أسبوعين).</p>
+                <p>الـ200 دينار الباقية بتم تسديدهم على دفعتين قبل نهاية البرنامج.</p>
+              </div>
+              
             </div>
           </div>
 

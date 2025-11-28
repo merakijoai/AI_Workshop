@@ -1,5 +1,9 @@
 // Workshop date: November 29, 2025 at 6:00 PM UTC+3
 const workshopDate = new Date("2025-11-29T18:00:00+03:00");
+// 24 hours after workshop: November 30, 2025 at 8:00 PM UTC+3
+const twentyFourHoursAfter = new Date("2025-11-30T19:00:00+03:00");
+// Golden offer ends: November 30, 2025 at 8:00 PM UTC+3
+const goldenOfferEndDate = new Date("2025-11-30T19:00:00+03:00");
 
 // Get DOM elements
 const hoursElement = document.getElementById("hours");
@@ -12,6 +16,11 @@ const linkMessage = document.getElementById("linkMessage");
 const marketingSection = document.getElementById("marketingSection");
 const countdownContainer = document.getElementById("countdownContainer");
 const dateContainer = document.querySelector(".date-container");
+const silverOfferSection = document.getElementById("silverOfferSection");
+const goldenOfferHours = document.getElementById("goldenOfferHours");
+const goldenOfferMinutes = document.getElementById("goldenOfferMinutes");
+const goldenOfferSeconds = document.getElementById("goldenOfferSeconds");
+let goldenOfferTimerInterval;
 
 const workshopUrl ="https://go.meraki-academy.com/FreeIntroductorySessionFormAI";
 const registrationUrl = "https://go.meraki-academy.com/RegistrationFormS1AI";
@@ -21,6 +30,7 @@ let previousMinutes = -1;
 let countdownInterval;
 let attendanceLinkClicked = false;
 let offerShown = false;
+let silverOfferShown = false;
 
 function updateCountdown() {
   const now = new Date();
@@ -80,6 +90,7 @@ function updateCountdown() {
     mainLink.textContent = "سجل الآن";
  linkMessage.textContent = ` رابط الحضور سيكون متاحاً خلال ${hoursUntilSwitch} ساعة ${minutesUntilSwitch} دقيقة  و ${secondsUntilSwitch} ثواني
       سجل في الورشة الان`;
+
    
 
     if (hoursUntilSwitch > 1) {
@@ -94,21 +105,68 @@ function updateCountdown() {
     linkMessage.textContent =
       "رابط الحضور متاح الآن  يمكنك الانضمام إلى الورشة";
     
-    // Check if 50 minutes have passed since workshop start
+    // Check if 50 minutes have passed since workshop start or 24 hours have passed
     checkAndShowOffer();
+  }
+  
+  // Also check for 24-hour mark during countdown
+  if (now >= twentyFourHoursAfter && !silverOfferShown) {
+    showSilverOffer();
   }
 }
 
 function checkAndShowOffer() {
+  const now = new Date();
+  
+  // Check if 24 hours have passed - show silver offer
+  if (now >= twentyFourHoursAfter) {
+    if (!silverOfferShown) {
+      showSilverOffer();
+    }
+    return;
+  }
+  
   if (offerShown) return;
   
-  const now = new Date();
   const timeSinceStart = now - workshopDate;
   const fiftyMinutes = 50 * 60 * 1000; // 50 minutes in milliseconds
   
   // Show offer if 50 minutes have passed OR attendance link was clicked
   if (timeSinceStart >= fiftyMinutes || attendanceLinkClicked) {
     showSpecialOffer();
+  }
+}
+
+function updateGoldenOfferTimer() {
+  const now = new Date();
+  const difference = goldenOfferEndDate - now;
+
+  if (difference <= 0) {
+    // Timer has ended
+    if (goldenOfferHours && goldenOfferMinutes && goldenOfferSeconds) {
+      goldenOfferHours.textContent = "00";
+      goldenOfferMinutes.textContent = "00";
+      goldenOfferSeconds.textContent = "00";
+    }
+    if (goldenOfferTimerInterval) {
+      clearInterval(goldenOfferTimerInterval);
+    }
+    return;
+  }
+
+  const hours = Math.floor(difference / (1000 * 60 * 60));
+  const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+  // Update display
+  if (goldenOfferHours) {
+    goldenOfferHours.textContent = String(hours).padStart(2, "0");
+  }
+  if (goldenOfferMinutes) {
+    goldenOfferMinutes.textContent = String(minutes).padStart(2, "0");
+  }
+  if (goldenOfferSeconds) {
+    goldenOfferSeconds.textContent = String(seconds).padStart(2, "0");
   }
 }
 
@@ -128,6 +186,9 @@ function showSpecialOffer() {
   const specialOfferSection = document.getElementById("specialOfferSection");
   if (specialOfferSection) {
     specialOfferSection.classList.add("show");
+    // Start the golden offer timer
+    updateGoldenOfferTimer();
+    goldenOfferTimerInterval = setInterval(updateGoldenOfferTimer, 1000);
   }
 }
 
@@ -139,6 +200,11 @@ function endCountdown() {
 
   // Check if we should show the offer instead
   checkAndShowOffer();
+  
+  // If silver offer is shown, don't show anything else
+  if (silverOfferShown) {
+    return;
+  }
   
   // If offer is shown, don't show marketing section
   if (offerShown) {
@@ -182,6 +248,28 @@ window.addEventListener("load", function () {
 //     }, 1000);
 //   }
 // });
+
+function showSilverOffer() {
+  if (silverOfferShown) return;
+  silverOfferShown = true;
+  
+  // Hide all other sections
+  countdownSection.style.display = "none";
+  linksSection.style.display = "none";
+  marketingSection.style.display = "none";
+  if (dateContainer) {
+    dateContainer.style.display = "none";
+  }
+  const specialOfferSection = document.getElementById("specialOfferSection");
+  if (specialOfferSection) {
+    specialOfferSection.style.display = "none";
+  }
+  
+  // Show silver offer section
+  if (silverOfferSection) {
+    silverOfferSection.classList.add("show");
+  }
+}
 
 // Check for offer periodically when workshop has started
 setInterval(() => {

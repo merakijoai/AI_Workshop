@@ -397,8 +397,8 @@ body::before {
 
 .offer-badge {
     display: inline-block;
-    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--accent-pink) 100%);
-    color: var(--white);
+    background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-pink) 100%);
+    color: var(--text-dark);
     padding: 10px 24px;
     border-radius: 30px;
     font-weight: 600;
@@ -407,6 +407,64 @@ body::before {
     animation: pulse 2s ease-in-out infinite;
     box-shadow: 0 0.25rem 1rem rgba(139, 92, 246, 0.4);
     border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.golden-offer-timer-container {
+    margin: 30px 0;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(251, 146, 60, 0.15) 0%, rgba(244, 114, 182, 0.1) 100%);
+    border-radius: 16px;
+    border: 2px solid rgba(251, 146, 60, 0.3);
+    box-shadow: 0 4px 16px rgba(251, 146, 60, 0.2);
+}
+
+.golden-offer-timer-title {
+    font-size: 20px;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.golden-offer-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.golden-timer-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.golden-timer-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-pink) 100%);
+    color: var(--white);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    min-width: 5rem;
+    box-shadow: 0 6px 20px rgba(251, 146, 60, 0.3), 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    text-align: center;
+}
+
+.golden-timer-label {
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.golden-timer-separator {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--accent-orange);
+    margin-top: 1.5rem;
 }
 
 .offer-headline {
@@ -595,7 +653,7 @@ body::before {
 .bonus-offer {
     margin-top: 28px;
     padding: 24px;
-    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--accent-pink) 50%, var(--primary-blue) 100%);
+    background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-pink) 50%, var(--primary-purple) 100%);
     background-size: 200% 100%;
     color: var(--white);
     border-radius: 16px;
@@ -812,11 +870,47 @@ body::before {
  .discount-highlight {
     font-size: 32px;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--accent-pink) 100%);
+    background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-pink) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
+}
+
+.silver-offer-text {
+    font-size: 20px;
+    margin:18px;
+    text-align: center;
+    color: var(--text-dark);
+    background:  rgb(211, 210, 210) ;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid darkblue;
+    border-style: outset;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.silver-offer-banner {
+    margin: 30px 0;
+    padding: 28px;
+    background: linear-gradient(135deg, #c0c0c0 0%, #807a7a 50%, #a0a0a0 100%);
+    background-size: 200% 100%;
+    color: var(--white);
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(128, 128, 128, 0.4), 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: gradientMove 3s ease infinite;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.silver-offer-text-large {
+    font-size: 24px;
+    margin: 0;
+    color: var(--white);
+    line-height: 1.8;
+    font-weight: 600;
 }
 
 @keyframes fadeIn {
@@ -897,6 +991,34 @@ body::before {
     .link-message {
         font-size: 15px;
         padding: 10px 18px;
+    }
+    
+    .golden-offer-timer-container {
+        padding: 12px;
+    }
+    
+    .golden-offer-timer-title {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    
+    .golden-timer-value {
+        font-size: 1.5rem;
+        padding: 0.625rem 1rem;
+        min-width: 3.5rem;
+    }
+    
+    .golden-timer-separator {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+    
+    .golden-timer-label {
+        font-size: 0.7rem;
+    }
+    
+    .golden-offer-timer {
+        gap: 8px;
     }
 }
 
@@ -1016,5 +1138,36 @@ body::before {
         font-size: 18px;
         padding: 15px 25px;
     }
+    
+    .silver-offer-text-large {
+        font-size: 18px;
+    }
+    
+    .silver-offer-banner {
+        padding: 20px 15px;
+    }
+    
+    .golden-offer-timer-container {
+        padding: 15px;
+    }
+    
+    .golden-offer-timer-title {
+        font-size: 18px;
+    }
+    
+    .golden-timer-value {
+        font-size: 2rem;
+        padding: 0.75rem 1.25rem;
+        min-width: 4rem;
+    }
+    
+    .golden-timer-separator {
+        font-size: 2rem;
+    }
+    
+    .golden-timer-label {
+        font-size: 0.75rem;
+    }
+ 
 }
 
